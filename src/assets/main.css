@@ -1,0 +1,80 @@
+/* @import './base.css'; */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@font-face {
+  font-family: 'poppins';
+  src: url('./font/Poppins-Regular.ttf') format('truetype');
+}
+
+#app {
+  max-width: 100%;
+  margin: 0 auto;
+  font-weight: normal;
+  background-color: #f5f5f5;
+  font-family: poppins;
+
+}
+
+.empty-right-20 {
+  padding-right: 20px;
+}
+
+.empty-y-50 {
+  padding: 50px 0;
+}
+
+.empty-right-10 {
+  padding-right: 10px;
+}
+
+.main-box .right-form .wrapper .v3dp__datepicker .v3dp__input_wrapper {
+  width: 96px;
+}
+
+.main-box .right-form .wrapper .v3dp__datepicker .v3dp__input_wrapper input {
+  padding: 0;
+  border: none;
+  width: 96px;
+  background-color: inherit;
+  color: #aaa;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.main-box .right-form .wrapper .v3dp__datepicker .v3dp__input_wrapper input:hover,
+.main-box .right-form .wrapper .v3dp__datepicker .v3dp__input_wrapper input:focus {
+  border: none;
+}
+
+.main-box .right-form .vue__time-picker {
+  width: 75px;
+}
+
+.main-box .right-form .vue__time-picker input {
+  padding: 0 !important;
+  border: none;
+  width: 75px;
+  background-color: inherit;
+  color: #aaa;
+  font-size: 16px;
+  line-height: 24px;
+  height: 24px;
+}
+
+.main-box .right-form .wrapper .vue__time-picker input:hover,
+.main-box .right-form .wrapper .vue__time-picker input:focus {
+  border: none;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

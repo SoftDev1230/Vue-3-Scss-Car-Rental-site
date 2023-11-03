@@ -1,0 +1,286 @@
+<div class="car-slider">
+    <div class="prev empty-right-10"><button class="arrow-btn" @click="() => plusCard(-3)"><svg-icon type="mdi"
+                :path="mdiArrowLeft" width="24" height="24"></svg-icon></button></div>
+    <TransitionGroup tag="div" name="slide" class="container">
+        <div v-for="item in items.slice(start, start + 3)" class="part" :key="item">
+            <div class="img-wrapper">
+                <div class="slider"><img :src="currentImage" alt="Slider Image">
+                    <div class="dots"><span v-for="(img, index) in pictures" :id="img.src" :key="index"
+                            :class="{ active: index == currentIndex }" @click="() => setSlide(index)"></span>
+                        < !-- { { cosole.log(index, currentIndex) } } -->
+                    </div>
+                    <div class="prev">
+                        <div class="circle"><a @click="() => plusSlides(-1)">❮</a></div>
+                    </div>
+                    <div class="next">
+                        <div class="circle"><a @click="() => plusSlides(1)">❯</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="desc">
+                <div class="car-info">
+                    <div class="car-id">
+                        <h4 class="empty-b-5">BMW X3 </h4>
+                        <h4>2020 </h4>
+                    </div>
+                    <div class="car-price">
+                        <h4 class="price-per-day">£ 90 /day</h4>
+                        <h5 class="price-per-day">£ 90 /day</h5>
+                        <h5 class="eat-price">£ 180 total est.</h5>
+                    </div>
+                </div>
+                <div class="car-way empty-top-10">
+                    <div class="way empty-right-10">GPS</div>
+                    <div class="way empty-right-10">Bluetooth</div>
+                    <div class="way">Automatic</div>
+                </div>
+                <div class="car-review empty-top-10">
+                    <div class="star">
+                        <div class="empty-right-5"><img alt="star" src="../assets/icons/upstar.png" width="16.67"
+                                height="15.83" /></div>
+                        <div><span>4.5(15)</span></div>
+                    </div>
+                    <div class="heart"><svg-icon type="mdi" :path="mdiHeartOutline" width="24" height="24"></svg-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </TransitionGroup>
+    <div class="next empty-left-10"><button class="arrow-btn" @click="() => plusCard(3)"><svg-icon type="mdi"
+                :path="mdiArrowRight" width="24" height="24"></svg-icon></button></div>
+</div>
+
+
+
+.car-slider {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-top: 30px;
+
+.container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.part {
+border-radius: $medium-radius;
+margin: 0 15px;
+box-shadow: $drop-shadow;
+
+.img-wrapper {
+
+position: relative;
+
+.slider {
+
+img {
+border-radius: 25px 25px 0 0;
+width: 297.33px;
+height: 133px;
+}
+
+.dots {
+display: flex;
+position: absolute;
+bottom: 10px;
+left: 50%;
+transform: translateX(-50%);
+align-items: center;
+
+span {
+cursor: pointer;
+height: 12px;
+width: 12px;
+margin: 0 5px;
+background-color: #d9d9d9;
+border-radius: 50%;
+display: inline-block;
+transition: background-color 0.6s ease;
+
+}
+
+.active {
+background-color: $main-color-y;
+}
+
+}
+}
+
+
+.prev,
+.next {
+position: absolute;
+cursor: pointer;
+top: 50%;
+width: auto;
+padding: 16px;
+margin-top: -22px;
+
+}
+
+.circle:hover {
+background-color: rgba(0, 0, 0, 0.8);
+}
+
+.circle {
+color: white;
+font-weight: bold;
+font-size: 13px;
+transition: 0.6s ease;
+border-radius: 50%;
+user-select: none;
+width: 24px;
+height: 24px;
+
+a {
+padding: 4px 9px;
+}
+}
+
+.next {
+right: 0;
+}
+}
+
+
+.desc {
+padding: 15px;
+
+.car-info {
+display: flex;
+justify-content: space-between;
+
+.car-id {
+color: $main-color-d;
+font-size: 12px;
+}
+
+.car-price {
+h4.price-per-day {
+color: $main-color-d;
+font-size: 12px;
+}
+
+h5.price-per-day {
+color: $main-color-g;
+font-size: 10px;
+}
+
+h5.eat-price {
+color: $main-color-y;
+font-size: 10px;
+}
+}
+}
+
+.empty-top-10 {
+padding-top: 10px;
+}
+
+.car-way {
+display: flex;
+font-size: 10px;
+
+.empty-right-10 {
+margin-right: 10px;
+}
+
+.way {
+color: $main-color-g;
+border-radius: 8px;
+text-align: center;
+padding: 1px;
+border: solid 1px $main-color-g;
+}
+}
+
+.car-review {
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: $main-color-d;
+
+.star {
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 10px;
+
+.empty-right-5 {
+margin-right: 10px;
+color: $main-color-d;
+
+}
+}
+}
+}
+
+/* On hover, add a black background color with a little bit see-through */
+}
+
+.arrow-btn {
+background-color: $main-color-dw;
+padding: 15px;
+border-radius: 20px;
+border: none;
+color: $main-color-y;
+cursor: pointer;
+padding: 15px;
+box-shadow: $drop-shadow;
+
+}
+
+.empty-right-10 {
+padding-right: 10px;
+}
+
+.empty-left-10 {
+padding-left: 10px;
+}
+}
+
+.slide-enter-active,
+.slide-leave-active {
+transition: all 0.3s ease-in-out;
+}
+
+/* delay leave of parent element */
+.slide-leave-active {
+transition-delay: 0.24s;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+transform: translateX(30px);
+opacity: 0.5;
+}
+
+/* we can also transition slide elements using slide selectors */
+.slide-enter-active .part,
+.slide-leave-active .part {
+transition: all 0.3s ease-in-out;
+}
+
+/* delay enter of slide element */
+.slide-enter-active .part {
+transition-delay: 0.25s;
+}
+
+.slide-enter-from .part,
+.slide-leave-to .part {
+transform: translateY(30px);
+/*
+Hack around a Chrome 96 bug in handling slide opacity transitions.
+This is not needed in other browsers or Chrome 99+ where the bug
+has been fixed.
+*/
+opacity: 0.001;
+}
+
+
+function plusCard(i) {
+start.value = (start.value + (i) - 1) % items.value.length;
+if (start.value < 0) start.value=items.value.length - 3 } let id=items.value.length + 1 const
+    sliceitems=ref(items.value.slice(0, 3))
